@@ -17,6 +17,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+				flex-direction:column;
             }
 
             .parent {
@@ -31,6 +32,17 @@
                 padding: 10px;
             }
 
+            #Container {
+               
+				text-align: center
+            }
+			.arrows{
+				height: 250px;
+				width: 250px;
+				margin: 20px;
+			}
+
+
 
 
 		</style>
@@ -40,6 +52,13 @@
 		
 		<canvas id="myCanvas" width="800" height="1000">
 		</canvas>
+		<div class="Container">
+			<img class="arrows" id="LeftArrowButton" src="LeftArrow.png" />
+			<img class="arrows" id="RightArrowButton" src="RightArrow.png" />
+
+
+		</div>
+		
 
 		<div id="SafeTimeDisplay"></div>
 		<!--This is where content to be displayed goes -->
@@ -54,6 +73,9 @@
 
             document.body.style.backgroundImage = "url('GreyBG.png')";
             
+
+            
+
 
             let leftArrow = false;
 			let rightArrow = false;
@@ -452,6 +474,22 @@
                     rightArrow = false;
                 }
 			});
+
+			let rightArrowButton = document.getElementById("RightArrowButton");
+			let leftArrowButton = document.getElementById("LeftArrowButton");
+			rightArrowButton.addEventListener("touchstart", function (event) {
+				rightArrow = true;
+			});
+            leftArrowButton.addEventListener("touchstart", function (event) {
+                leftArrow = true;
+			});
+
+            rightArrowButton.addEventListener("touchend", function (event) {
+                rightArrow = false;
+            });
+            leftArrowButton.addEventListener("touchend", function (event) {
+                leftArrow = false;
+            });
 
 			function movePaddle() {
 				if (rightArrow && paddle.x + PADDLE_WIDTH < cvs.width) {
