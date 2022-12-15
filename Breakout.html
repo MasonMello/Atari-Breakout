@@ -7,6 +7,31 @@
 				visibility: hidden;
 			}
 
+			
+
+            body {
+                text-align: center;
+                margin: 0;
+                padding: 0;
+                height: inherit;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .parent {
+                place-items: center;
+                display: grid;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #myCanvas {
+                background-color: cornflowerblue;
+                padding: 10px;
+            }
+
+
 
 		</style>
 		<title></title>
@@ -20,11 +45,15 @@
 		<!--This is where content to be displayed goes -->
 
 		<script>
+
 			var cvs = document.getElementById("myCanvas");
 			var ctx = cvs.getContext("2d");
 
 			const BG_IMG = new Image();
 			BG_IMG.src = "BGIMAGE.jfif";
+
+            document.body.style.backgroundImage = "url('GreyBG.png')";
+            
 
             let leftArrow = false;
 			let rightArrow = false;
@@ -33,7 +62,7 @@
             const PADDLE_HEIGHT = 20;
 			const PADDLE_MARGIN_BOTTOM = 50;
 
-            const powerupsList = ["Cannonball", "Extended Paddle", "Two Balls", "Extra Life", "Bigger Ball", "Fast Ball", "Slow Paddle", "Smaller Bricks"]
+            const powerupsList = ["Cannonball", "Extended Paddle", "Extra Life", "Bigger Ball", "Fast Ball", "Slow Paddle", "Smaller Bricks"]
 
 			let LEVEL = 1;
 			let max_level = 6;
@@ -199,10 +228,6 @@
 						//console.log("You recieved the extended paddle powerup!")
 						extendPaddle();
                         break;
-                    case "Two Balls":
-						//console.log("You recieved the second ball powerup!")
-
-						break;
                     case "Extra Life":
 						//console.log("You recieved an extra life! ")
 						extraLife();
