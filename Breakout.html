@@ -1,69 +1,94 @@
 <!doctype html> 
 <html>
-	<head>
-		<!-- Meta data and resource (css/js) file links -->
-		<style>
-			#SafeTimeDisplay{
-				visibility: hidden;
-			}
-
-			
-
-            body {
-                text-align: center;
-                margin: 0;
-                padding: 0;
-                height: inherit;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-				flex-direction:column;
-            }
-
-            .parent {
-                place-items: center;
-                display: grid;
-                justify-content: center;
-                align-items: center;
-            }
-
-            #myCanvas {
-                background-color: cornflowerblue;
-                padding: 10px;
-            }
-
-            #Container {
-               
-				text-align: center
-            }
-			.arrows{
-				height: 250px;
-				width: 250px;
-				margin: 20px;
-			}
+<head>
+	<!-- Meta data and resource (css/js) file links -->
+	<meta name="viewport" content="user-scalable=no">
+	<style>
+		#SafeTimeDisplay {
+			visibility: hidden;
+		}
 
 
 
+		body {
+			text-align: center;
+			margin: 0;
+			padding: 0;
+			height: inherit;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+		}
 
-		</style>
-		<title></title>
-	</head>
+		.parent {
+			place-items: center;
+			display: grid;
+			justify-content: center;
+			align-items: center;
+		}
+
+		#myCanvas {
+			background-color: cornflowerblue;
+			padding: 10px;
+		}
+
+		#Container {
+			text-align: center
+		}
+
+        .arrows {
+            height: 250px;
+            width: 250px;
+            margin: 20px;
+            background-color: transparent;
+        }
+
+		#LeftArrowButton {
+			background-image: url("LeftArrow.png");
+			background-size: contain;
+		}
+
+		#RightArrowButton {
+			background-image: url("RightArrow.png");
+			background-size: contain;
+		}
+
+
+
+		.bigContainer {
+			display: inline-block; /* shrink to fit */
+			width: 100%; /* whatever width you like */
+			position: relative;
+			height: auto;
+		}
+	</style>
+	<title></title>
+</head>
 	<body>
+        <div class="bigContainer">
+            <canvas id="myCanvas" width="800" height="1000">
+            </canvas>
+            <div class="Container">
+                <button class="arrows" id="LeftArrowButton"  />
+                <button class="arrows" id="RightArrowButton"  />
+
+
+            </div>
+        </div>
 		
-		<canvas id="myCanvas" width="800" height="1000">
-		</canvas>
-		<div class="Container">
-			<img class="arrows" id="LeftArrowButton" src="LeftArrow.png" />
-			<img class="arrows" id="RightArrowButton" src="RightArrow.png" />
-
-
-		</div>
 		
 
 		<div id="SafeTimeDisplay"></div>
 		<!--This is where content to be displayed goes -->
 
 		<script>
+
+           // var LeftButton = document.getElementById("LeftArrowButton");
+			//LeftButton.innerHTML = '<img src="LeftArrow.png" />';
+
+            //var RightButton = document.getElementById("RightArrowButton");
+            //RightButton.innerHTML = '<img src="RightArrow.png" />';
 
 			var cvs = document.getElementById("myCanvas");
 			var ctx = cvs.getContext("2d");
@@ -73,7 +98,7 @@
 
             document.body.style.backgroundImage = "url('GreyBG.png')";
             
-
+			//document.getElementById("myCanvas").height = window.height - 300;
             
 
 
