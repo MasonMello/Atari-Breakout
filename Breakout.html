@@ -10,16 +10,17 @@
 
 
 
-		body {
-			text-align: center;
-			margin: 0;
-			padding: 0;
-			height: inherit;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			flex-direction: column;
-		}
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            user-select: none;
+        }
 
 		.parent {
 			place-items: center;
@@ -514,7 +515,30 @@
             });
             leftArrowButton.addEventListener("touchend", function (event) {
                 leftArrow = false;
+			});
+
+            rightArrowButton.addEventListener("mousedown", function (event) {
+                rightArrow = true;
             });
+            leftArrowButton.addEventListener("mousedown", function (event) {
+                leftArrow = true;
+            });
+
+            rightArrowButton.addEventListener("mouseup", function (event) {
+                rightArrow = false;
+            });
+            leftArrowButton.addEventListener("mouseup", function (event) {
+                leftArrow = false;
+			});
+
+            rightArrowButton.addEventListener("mouseout", function (event) {
+                rightArrow = false;
+            });
+            leftArrowButton.addEventListener("mouseout", function (event) {
+                leftArrow = false;
+            });
+
+
 
 			function movePaddle() {
 				if (rightArrow && paddle.x + PADDLE_WIDTH < cvs.width) {
@@ -582,13 +606,13 @@
                 }
 			});
 
-            window.addEventListener('keydown', function (e) {
+           /* window.addEventListener('keydown', function (e) {
                 var key = e.keyCode;
                 if (key === 219)// p key
                 {
                     LIFE ++
                 }
-            });
+            });*/
 			
 
             function togglePause() {
